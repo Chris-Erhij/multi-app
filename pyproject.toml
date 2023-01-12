@@ -9,7 +9,7 @@ author_email = "Christianerhijotah@gmail.com"
 
 [tool.briefcase.app.multi-app]
 formal_name = "Multi app"
-description = "An an that does a bunch of cool stuffs"
+description = "An app that does a bunch of cool stuffs"
 icon = "src/multi_app/resources/multi-app"
 sources = ['src/multi_app']
 requires = [

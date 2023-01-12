@@ -1,12 +1,12 @@
 """
-An an that does a bunch of cool stuffs
+An app that does a bunch of cool stuffs
 """
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 
 
-class Multiapp(toga.App):
+class MultiApp(toga.App):
 
     def startup(self):
         """
@@ -24,4 +24,4 @@ class Multiapp(toga.App):
 
 
 def main():
-    return Multiapp()
+    return MultiApp()
