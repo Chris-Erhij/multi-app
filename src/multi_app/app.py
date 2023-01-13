@@ -44,6 +44,6 @@ class MultiApp(toga.App):
     def say_hello(self) -> None:
         print('Hello', self.input_text.value)
 
-    @staticmethod
-    def main() -> Any:
-        return MultiApp()
+
+def main() -> Any:
+    return MultiApp()
