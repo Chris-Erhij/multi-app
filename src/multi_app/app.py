@@ -1,11 +1,12 @@
 """
 An app that does a bunch of cool stuffs
 """
+import httpx
 import toga
 from toga import TextInput, Box, Button, MainWindow, Label
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
-from typing import List, Dict, Tuple, Any
+from typing import Any
 
 
 class MultiApp(toga.App):
@@ -32,17 +33,32 @@ class MultiApp(toga.App):
         name_box.add(self.input_text)
 
         # Create a button with a button widget
-        button: Button = toga.Button("greet",
-                                     on_press=self.say_hello(), style=Pack(padding=5))
+        button: Button = toga.Button("greet", on_press=self.say_hello,
+                                     style=Pack(padding=5),
+                                     )
 
-        main_box.add(name_box); main_box.add(button)
+        main_box.add(name_box)
+        main_box.add(button)
 
         self.main_window: MainWindow = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
         self.main_window.show()
 
-    def say_hello(self) -> None:
-        print('Hello', self.input_text.value)
+    # noinspection PyUnusedLocal
+    async def say_hello(self, widget) -> None:
+        if self.input_text.value:
+            user_name: str = self.input_text.value
+        else:
+            user_name = "Stranger"
+
+        # Using a context
+        async with httpx.AsyncClient() as client:
+            response: Any = await client.get("https://jsonplaceholder.typicode.com/posts/42")
+            u_response = response.json()
+
+        self.main_window.info_dialog(
+            F"Hello {user_name}", u_response['body'],
+        )
 
 
 def main() -> Any:
