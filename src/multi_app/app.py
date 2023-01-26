@@ -42,15 +42,15 @@ class MultiApp(toga.App):
         show the main window.
         """
         # MAIN BOX
-        main_box: Box = toga.Box(style=Pack(background_color='blue', direction=COLUMN))
+        main_box: Box = toga.Box(style=Pack(background_color='grey', direction=COLUMN))
 
         # NAME LABEL SECTION
-        name_label: Label = toga.Label("Enter name", style=Pack(direction=ROW, padding=(0, 5)))
-        anagram_name_label: Label = toga.Label("Check Anagram", style=Pack(direction=ROW, padding=(5, 0)))
+        name_label: Label = toga.Label("Enter name", style=Pack(color='green', direction=ROW, padding=(0, 5)))
+        anagram_name_label: Label = toga.Label("Check Anagram", style=Pack(direction=ROW, padding=(5, 0), color='blue'))
 
         # USER TEXT INPUT SECTION
         self.input_text: TextInput = toga.TextInput(placeholder="Enter your name here",
-                                                    style=Pack(flex=1))
+                                                    style=Pack(flex=1,))
         self.anagram_user_input0: TextInput = toga.TextInput(placeholder="Enter word here",
                                                              style=Pack(flex=10, padding=5))
         self.anagram_user_input1: TextInput = toga.TextInput(placeholder=" Enter another word here",
@@ -68,11 +68,11 @@ class MultiApp(toga.App):
         anagram_box.add(self.anagram_user_input1)
 
         # BUTTON SECTION
-        greet_button: Button = toga.Button("greet", id='green', on_press=self.say_hello,
-                                           style=Pack(flex=20, padding=5),
+        greet_button: Button = toga.Button("greet", on_press=self.say_hello,
+                                           style=Pack(color='yellow', flex=20, padding=5,),
                                            )
-        anagram_button: Button = toga.Button("Check", id='blue', on_press=self.anagram_solution,
-                                             style=Pack(flex=30, padding=5),
+        anagram_button: Button = toga.Button("Check", on_press=self.anagram_solution,
+                                             style=Pack(color='green', flex=30, padding=5,),
                                              )
 
         # BOX INTO MAIN-BOX SECTION
