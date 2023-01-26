@@ -13,7 +13,6 @@ description = "An app that does a bunch of cool stuffs"
 icon = "src/multi_app/resources/multi-app"
 sources = ['src/multi_app']
 requires = [
-    'httpx'
 ]
 
 

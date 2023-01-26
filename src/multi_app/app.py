@@ -1,7 +1,6 @@
 """
 An app that does a bunch of cool stuffs
 """
-import httpx
 import toga
 from toga import TextInput, Box, Button, MainWindow, Label
 from toga.style import Pack
